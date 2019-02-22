@@ -12,8 +12,12 @@ sum(is.na(df$Ozone))
 df.cleanNa<-na.omit(df)
 #shows no. of rows
 nrow(df.cleanNa)
+#delet column one where 37 NA is present delet it when it is not required for our observation
+df.cleanNA2<-na.omit(df[,-1])
+#shows no. of rows
+nrow(df.cleanNA2)
 #assign columns of NA in which NA is less than 10
-df.cleanNA2<- df[,colSums(is.na(df))<10]
+df.cleanNA3<- df[,colSums(is.na(df))<10]
 #mean and median can not be count if there is NA value is present it will return NA 
 #calculate mean of the given column except NA 
 mean(!is.na(df$Solar.R))
@@ -24,4 +28,18 @@ df$Solar.R[is.na(df$Solar.R)]<-mean(!is.na(df$Solar.R))
 #replace/fill NA value by taking median value
 df$Solar.R[is.na(df$Solar.R)]<-median(!is.na(df$Solar.R))
 #now checking is there any NA is still present after fill by mean/median value
-any(is.na(df$Solar.R))
+any(is.na(df$Solar.R))  #this method return true or false if there is any NA value present
+
+
+
+
+
+
+
+
+
+
+
+
+
+
